@@ -26,7 +26,7 @@ public class homepageFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         getFragmentManager().beginTransaction()
-                .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
+                .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
                 .replace(R.id.main_content, new VPFragment())
                 .addToBackStack(null)
                 .commit();

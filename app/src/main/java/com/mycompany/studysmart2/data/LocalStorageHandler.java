@@ -8,13 +8,13 @@ import android.preference.PreferenceManager;
  * Created by anders on 22-10-2015.
  *
  * This class is a singleton which handles the PreferenceManager aka. all the data stored
- * locally on the device for offline use and the active user information.
+ * locally on the device for offline use and the active student information.
  *
  * All other classes should use this class when accessing or storing data for local storage.
  */
 public class LocalStorageHandler {
 
-    final private String USER = "user";
+    final private String USER = "student";
     final private String EMPTY = "NULL";
 
     PreferenceManager prefs;
