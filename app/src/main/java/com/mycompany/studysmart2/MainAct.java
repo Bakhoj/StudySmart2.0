@@ -55,7 +55,10 @@ public class MainAct extends AppCompatActivity
         if (id == R.id.nav_camara) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
-            startActivity(new Intent(this, VPAct.class));
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.main_content, new VPFragment())
+                    .addToBackStack(null)
+                    .commit();
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {

@@ -32,7 +32,7 @@
             android:layout_height="wrap_content">
             <!--android:paddingTop="@dimen/activity_vertical_margin"-->
         </FrameLayout>
-        <!--<include layout="@layout/main_act_content" />-->
+        <!--<include layout="@layout/homepage_frag_content" />-->
 
     </android.support.design.widget.CoordinatorLayout>
 

@@ -6,21 +6,29 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 /**
  * Created by anders on 21-Nov-15.
  */
-public class homepageFragment extends Fragment {
+public class homepageFragment extends Fragment implements View.OnClickListener {
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.main_act_content, container, false);
+        View rootView = inflater.inflate(R.layout.homepage_frag, container, false);
         //TextView textView = (TextView) rootView.findViewById(R.id.homeworkcalendar_label);
         //textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
-
+            rootView.findViewById(R.id.homepage_btn).setOnClickListener(this);
         return rootView;
+    }
+
+    @Override
+    public void onClick(View v) {
+        getFragmentManager().beginTransaction()
+                .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
+                .replace(R.id.main_content, new VPFragment())
+                .addToBackStack(null)
+                .commit();
     }
 }
