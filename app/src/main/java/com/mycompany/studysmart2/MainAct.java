@@ -28,6 +28,12 @@ public class MainAct extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        if(savedInstanceState == null){
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.main_content, new homepageFragment())
+                    .commit();
+        }
     }
 
     @Override
