@@ -9,16 +9,28 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/app_bar_home_work" tools:context=".HomeWorkAct">
 
-    <TextView android:text="Hello World!" android:layout_width="wrap_content"
+    <TextView android:text="@string/welcome_application_text" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView2" />
+        android:id="@+id/main_context_text"
+        android:layout_below="@+id/main_header_text"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="8dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Button"
         android:id="@+id/button"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/main_context_text"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="39dp" />
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/welcome_application"
+        android:id="@+id/main_header_text"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

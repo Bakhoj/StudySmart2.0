@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">StudySmart2</string>
+    <string name="app_name">Study Smart</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -7,4 +7,11 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_vp">VPAct</string>
     <string name="section_format">Hello World from section: %1$d</string>
+
+    <string name="welcome_application">Welcome to Study Smart</string>
+    <string name="welcome_application_text">The application is in alpha test at the moment.\nCrashes will occur</string>
+
+    <string name="about_application">
+        Icons are from the package Open Icon Library: http://sourceforge.net/projects/openiconlibrary/?source=typ_redirect</string>
+
 </resources>
