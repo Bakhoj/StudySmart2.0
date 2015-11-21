@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.astuetz.PagerSlidingTabStrip;
+
 /**
  * Created by anders on 21-Nov-15.
  */
@@ -30,6 +32,10 @@ public class VPFragment extends Fragment {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) root.findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+
+        PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) root.findViewById(R.id.tabs);
+        tabs.setViewPager(mViewPager);
+
         return root;
     }
 
