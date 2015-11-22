@@ -8,6 +8,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.mycompany.studysmart2.data.Logik;
 
@@ -35,10 +36,20 @@ public class MainAct extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         if(savedInstanceState == null){
+            Logik.instance = new Logik();
+            Logik.instance.makeTestData();
+
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.main_content, new Frag1Frontpage())
                     .commit();
         }
+
+//        app:headerLayout="@layout/leftmenu_head"
+//        app:menu="@menu/activity_home_work_drawer"
+
+        View headerLayout = navigationView.inflateHeaderView(R.layout.leftmenu_head);
+
+
 /*      TODO: check how to get this working later on! adding the students name and email to leftmenu header
         TextView left_user = (TextView) findViewById(R.id.leftmenu_head_username);
         TextView left_mail = (TextView) findViewById(R.id.leftmenu_head_usermail);

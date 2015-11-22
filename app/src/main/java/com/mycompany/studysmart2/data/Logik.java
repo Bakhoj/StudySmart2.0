@@ -1,7 +1,5 @@
 package com.mycompany.studysmart2.data;
 
-import android.hardware.camera2.CameraManager;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -18,7 +16,6 @@ public class Logik {
 
     public void makeTestData(){
         student = new Student(1234, "Anders", "Andersen", "male", "anders@cbs.dk", "19900821", 12345678, "studievej 2");
-
 
         try {
             date  = new SimpleDateFormat("dd-M-yyyy hh:mm:ss").parse("21-08-1992 20:12:10");

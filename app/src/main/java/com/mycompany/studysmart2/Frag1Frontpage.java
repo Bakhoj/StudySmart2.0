@@ -36,9 +36,6 @@ public class Frag1Frontpage extends Fragment implements View.OnClickListener, Ad
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.frag1_frontpage, container, false);
-        //TextView textView = (TextView) root.findViewById(R.id.homeworkcalendar_label);
-        //textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
-
 
         TextView header = (TextView) root.findViewById(R.id.frontpage_header_text);
         header.setText(R.string.welcome_application);

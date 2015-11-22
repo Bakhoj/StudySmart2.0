@@ -15,6 +15,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/studygroupmanager_list"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/homeworkcalendar_label" />
+        android:layout_below="@+id/studygroupmanager_label" />
 
 </RelativeLayout>
