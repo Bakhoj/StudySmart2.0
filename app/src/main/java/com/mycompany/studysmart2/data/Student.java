@@ -8,6 +8,7 @@ public class Student {
     public String name, lastname, sex, email, birth, address;
 
     public Course[] Course;
+    public University university;
 
     public Student(int id, String name, String lastname, String sex, String email, String birth, int phone, String address) {
 

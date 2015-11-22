@@ -36,10 +36,16 @@ public class MainAct extends AppCompatActivity
 
         if(savedInstanceState == null){
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.main_content, new homepageFragment())
+                    .add(R.id.main_content, new Frag1Frontpage())
                     .commit();
         }
-    }
+/*      TODO: check how to get this working later on! adding the students name and email to leftmenu header
+        TextView left_user = (TextView) findViewById(R.id.leftmenu_head_username);
+        TextView left_mail = (TextView) findViewById(R.id.leftmenu_head_usermail);
+
+        left_user.setText(Logik.instance.student.lastname +", " + Logik.instance.student.name);
+        left_mail.setText(Logik.instance.student.email);
+  */  }
 
     @Override
     public void onBackPressed() {
@@ -61,15 +67,18 @@ public class MainAct extends AppCompatActivity
             // Handle the camera action
         } else if (id == R.id.leftmenu_homeworkcalendar) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.main_content, new VPFragment())
-                    .addToBackStack(null)
+                    .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
+                    .replace(R.id.main_content, new Frag2Homeworkcalendar())
                     .commit();
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.leftmenu_studygroup_groups) {
-
+            getSupportFragmentManager().beginTransaction()
+                    .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
+                    .replace(R.id.main_content, new Frag3Studygroupmanager())
+                    .commit();
         } else if (id == R.id.leftmenu_studygroup_meetings) {
 
         }

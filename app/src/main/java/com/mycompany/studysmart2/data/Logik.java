@@ -1,5 +1,7 @@
 package com.mycompany.studysmart2.data;
 
+import android.hardware.camera2.CameraManager;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -11,13 +13,18 @@ public class Logik {
     public static Logik instance;
     public Student student;
     public Date date;
+    public University[] availableUniversities;
 
 
-    public void makeTestData() throws ParseException {
+    public void makeTestData(){
         student = new Student(1234, "Anders", "Andersen", "male", "anders@cbs.dk", "19900821", 12345678, "studievej 2");
 
 
-        date  = new SimpleDateFormat("dd-M-yyyy hh:mm:ss").parse("21-08-1992 20:12:10");
+        try {
+            date  = new SimpleDateFormat("dd-M-yyyy hh:mm:ss").parse("21-08-1992 20:12:10");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
         System.out.println("THE MOTHERFUCKING DATE IS: " + date);
 
@@ -30,6 +37,11 @@ public class Logik {
                 new HomeWork(2001, date, 1, "First homework", "bla bla bla long description", "short message", 1),
                 new HomeWork(2002, date, 2, "Second homework", "bla bla bla long description", "short message", 2),
                 new HomeWork(2003, date, 3, "Third homework", "bla bla bla long description", "short message", 0)
+        };
+
+        availableUniversities = new University[]{
+                new University(1, "CBS"),
+                new University(2, "DTU"),
         };
 
         StudentChoice.instance = new StudentChoice();

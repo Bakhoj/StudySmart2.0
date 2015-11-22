@@ -20,6 +20,11 @@ public class HomeWork {
         this.status = status;
     }
 
+    @Override
+    public String toString() {
+        return title + "\n" + shortdescription;
+    }
+
     /*public String toListString() {
         return (title + "\n" + shortdescription);
     }*/

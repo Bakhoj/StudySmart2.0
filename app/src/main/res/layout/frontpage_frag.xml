@@ -11,8 +11,8 @@
 
     <TextView android:text="@string/welcome_application_text" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/homepage_context_text"
-        android:layout_below="@+id/homepage_header_text"
+        android:id="@+id/frontpage_context_text"
+        android:layout_below="@+id/frontpage_header_text"
         android:layout_alignParentStart="true"
         android:layout_marginTop="8dp" />
 
@@ -20,8 +20,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="something something"
-        android:id="@+id/homepage_btn"
-        android:layout_below="@+id/homepage_context_text"
+        android:id="@+id/frontpage_btn"
+        android:layout_below="@+id/frontpage_context_text"
         android:layout_alignParentStart="true"
         android:layout_marginTop="8dp" />
 
@@ -30,7 +30,14 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/welcome_application"
-        android:id="@+id/homepage_header_text"
+        android:id="@+id/frontpage_header_text"
         android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/frontpage_uni_list"
+        android:layout_below="@+id/frontpage_btn"
         android:layout_alignParentStart="true" />
 </RelativeLayout>
