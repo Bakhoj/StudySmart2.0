@@ -1,5 +1,4 @@
-package com.mycompany.studysmart2.data;
-import android.app.Activity;
+package com.mycompany.studysmart2.handler;
 import android.content.Context;
 import android.preference.PreferenceManager;
 

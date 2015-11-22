@@ -6,4 +6,8 @@ package com.mycompany.studysmart2.data;
 public class StudentChoice {
     public static StudentChoice instance;
     public Student student;
+
+    public StudentChoice(){
+
+    }
 }
