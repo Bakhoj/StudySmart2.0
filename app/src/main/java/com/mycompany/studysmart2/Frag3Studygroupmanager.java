@@ -9,18 +9,18 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.astuetz.PagerSlidingTabStrip;
-
 
 /**
  * Created by anders on 21-Nov-15.
  */
-public class Frag2Homeworkcalendar extends Fragment {
+public class Frag3Studygroupmanager extends Fragment {
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
-//    private List<HomeWork> homework;
+
 
     @Nullable
     @Override
@@ -37,11 +37,6 @@ public class Frag2Homeworkcalendar extends Fragment {
         PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) root.findViewById(R.id.tabs);
         tabs.setViewPager(mViewPager);
 
- /*       List<HomeWork> homework = Arrays.asList(Logik.instance.student.Course[0].homeWork);
-
-        ListView hwlist = (ListView) root.findViewById(R.id.homeworkcalendar_list);
-        hwlist.setAdapter(new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, homework));
-*/
         return root;
     }
 
@@ -65,16 +60,16 @@ public class Frag2Homeworkcalendar extends Fragment {
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 3;
+            return 2;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "7days";
+                    return "Your Groups";
                 case 1:
-                    return "Next week";
+                    return "Open Reading Meetups";
                 case 2:
                     return "All";
             }
@@ -110,9 +105,9 @@ public class Frag2Homeworkcalendar extends Fragment {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View root = inflater.inflate(R.layout.frag2_homeworkcalendar, container, false);
-
-
+            View root = inflater.inflate(R.layout.frag3_studygroupmanager, container, false);
+            TextView textView = (TextView) root.findViewById(R.id.studygroupmanager_label);
+            textView.setText("Studygroup manager");
 
             return root;
         }
