@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
-        <item android:id="@+id/nav_camara" android:icon="@android:drawable/ic_menu_camera"
-            android:title="Import" />
+    <!--<group android:checkableBehavior="single">
         <item android:id="@+id/leftmenu_homeworkcalendar" android:icon="@drawable/homeworklogo"
             android:title="Homework Calendar" />
-        <item android:id="@+id/nav_slideshow" android:icon="@android:drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item android:id="@+id/nav_manage" android:icon="@android:drawable/ic_menu_manage"
-            android:title="Tools" />
-    </group>
+    </group>-->
+
+    <item android:title="Homework Calendar">
+        <menu>
+            <item android:id="@+id/leftmenu_homeworkcalendar" android:icon="@drawable/homeworklogo"
+                android:title="Calendar" />
+            <item android:id="@+id/leftmenu_postponedhomework" android:icon="@drawable/homeworklogo"
+                android:title="Postponed Homework" />
+        </menu>
+    </item>
 
     <item android:title="Study Groups">
         <menu>
@@ -18,6 +21,15 @@
                 android:title="Groups" />
             <item android:id="@+id/leftmenu_studygroup_meetings" android:icon="@drawable/meetingicon"
                 android:title="Open Reading Meetings" />
+        </menu>
+    </item>
+
+    <item android:title="Options">
+        <menu>
+            <item android:id="@+id/leftmenu_settings" android:icon="@drawable/meetingicon"
+                android:title="Settings" />
+            <item android:id="@+id/leftmenu_logout" android:icon="@drawable/meetingicon"
+                android:title="logout" />
         </menu>
     </item>
 

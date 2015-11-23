@@ -27,7 +27,7 @@ import java.util.List;
  * He will be able to choose a supported university here.
  *
  */
-public class Frag1Frontpage extends Fragment implements View.OnClickListener, AdapterView.OnItemClickListener {
+public class Frag1Frontpage extends Fragment implements AdapterView.OnItemClickListener {
 
     private List<University> universities;
 
@@ -50,14 +50,9 @@ public class Frag1Frontpage extends Fragment implements View.OnClickListener, Ad
 
         unilist.setOnItemClickListener(this);
 
-        root.findViewById(R.id.frontpage_btn).setOnClickListener(this);
+//        root.findViewById(R.id.frontpage_btn).setOnClickListener(this);
 
         return root;
-    }
-
-    @Override
-    public void onClick(View v) {
-        setUniversity(0);
     }
 
     @Override
@@ -74,7 +69,7 @@ public class Frag1Frontpage extends Fragment implements View.OnClickListener, Ad
         getFragmentManager().beginTransaction()
                 .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
                 .replace(R.id.main_content, hwc)
-                .addToBackStack(null)
+//                .addToBackStack(null)
                 .commit();
     }
 }
