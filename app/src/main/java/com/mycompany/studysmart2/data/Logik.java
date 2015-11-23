@@ -37,10 +37,10 @@ public class Logik {
                 new Course(1001, "Economics", "Something about economics"),
                 new Course(1002, "Business", "Something about Business and stuff")};
 
-        student.Course[0].homeworks = new HomeWork[] {
-                new HomeWork(2001, date1, 1, "First hw", "bla bla bla long description", "short message", 1),
-                new HomeWork(2002, date2, 2, "Second hw", "bla bla bla long description", "short message", 2),
-                new HomeWork(2003, date3, 3, "Third hw", "bla bla bla long description", "short message", 0)
+        student.Course[0].homeworks = new Homework1[] {
+                new Homework1(2001, date1, 1, "First hw", "bla bla bla long description", "short message", 1),
+                new Homework1(2002, date2, 2, "Second hw", "bla bla bla long description", "short message", 2),
+                new Homework1(2003, date3, 3, "Third hw", "bla bla bla long description", "short message", 0)
         };
 
         availableUniversities = new University[]{

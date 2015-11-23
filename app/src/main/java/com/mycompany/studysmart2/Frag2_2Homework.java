@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
-import com.mycompany.studysmart2.data.HomeWork;
+import com.mycompany.studysmart2.data.Homework1;
 import com.mycompany.studysmart2.data.StudentChoice;
 
 
@@ -31,7 +31,7 @@ public class Frag2_2Homework extends Fragment {
 
         View root = inflater.inflate(R.layout.frag2_2homework, container, false);
 
-        HomeWork homework = StudentChoice.instance.homework;
+        Homework1 homework = StudentChoice.instance.homework;
 
         TextView header = (TextView) root.findViewById(R.id.homework_header_text);
         header.setText(homework.title);

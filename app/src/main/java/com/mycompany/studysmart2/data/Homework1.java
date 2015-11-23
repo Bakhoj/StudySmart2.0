@@ -5,12 +5,12 @@ import java.util.Date;
 /**
  * Created by anders on 19-11-2015.
  */
-public class HomeWork {
+public class Homework1 {
     public Date date;
     public int id, session, status;
     public String title, description, shortdescription;
 
-    public HomeWork(int id, Date date, int session, String title, String description, String shortD, int status){
+    public Homework1(int id, Date date, int session, String title, String description, String shortD, int status){
         this.id = id;
         this.date = date;
         this.session = session;

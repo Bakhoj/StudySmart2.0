@@ -16,7 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.astuetz.PagerSlidingTabStrip;
-import com.mycompany.studysmart2.data.HomeWork;
+import com.mycompany.studysmart2.data.Homework1;
 import com.mycompany.studysmart2.data.Logik;
 import com.mycompany.studysmart2.data.StudentChoice;
 
@@ -119,7 +119,7 @@ public class Frag2_1Homeworkcalendar extends Fragment {
         public PlaceholderFragment() {
         }
 
-        private List<HomeWork> homework;
+        private List<Homework1> homework;
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
