@@ -50,8 +50,6 @@ public class Frag1Frontpage extends Fragment implements AdapterView.OnItemClickL
 
         unilist.setOnItemClickListener(this);
 
-//        root.findViewById(R.id.frontpage_btn).setOnClickListener(this);
-
         return root;
     }
 
@@ -64,12 +62,12 @@ public class Frag1Frontpage extends Fragment implements AdapterView.OnItemClickL
 
         Logik.instance.student.university = Logik.instance.availableUniversities[position];
 
-        Frag2Homeworkcalendar hwc = new Frag2Homeworkcalendar();
+        Frag2_1Homeworkcalendar hwc = new Frag2_1Homeworkcalendar();
 
         getFragmentManager().beginTransaction()
                 .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
                 .replace(R.id.main_content, hwc)
-//                .addToBackStack(null)
+                .addToBackStack(null)
                 .commit();
     }
 }

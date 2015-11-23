@@ -26,7 +26,7 @@ public class Frag3Studygroupmanager extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.frag2_vp_homeworkcalendar, container, false);
+        View root = inflater.inflate(R.layout.frag2_1vp_homeworkcalendar, container, false);
 
         mSectionsPagerAdapter = new SectionsPagerAdapter(getChildFragmentManager());
 

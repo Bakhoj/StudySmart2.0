@@ -22,7 +22,9 @@ public class HomeWork {
 
     @Override
     public String toString() {
-        return title + "\n" + shortdescription;
+        return title + "\n"
+                + date + "\n"
+                + shortdescription;
     }
 
     /*public String toListString() {

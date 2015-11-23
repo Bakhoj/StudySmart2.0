@@ -4,7 +4,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.mycompany.studysmart2.VPAct$PlaceholderFragment">
+    tools:context="com.mycompany.studysmart2.VPAct$PlaceholderFragment"
+    android:id="@+id/homeworkcalendar_frag">
 
     <TextView android:id="@+id/homeworkcalendar_label" android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -76,7 +76,7 @@ public class MainAct extends AppCompatActivity
         if (id == R.id.leftmenu_homeworkcalendar) {
             getSupportFragmentManager().beginTransaction()
                     .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
-                    .replace(R.id.main_content, new Frag2Homeworkcalendar())
+                    .replace(R.id.main_content, new Frag2_1Homeworkcalendar())
                     .commit();
         } else if (id == R.id.leftmenu_studygroup_groups) {
             getSupportFragmentManager().beginTransaction()
