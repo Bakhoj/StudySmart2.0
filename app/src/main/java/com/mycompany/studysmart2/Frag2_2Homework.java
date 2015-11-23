@@ -41,9 +41,4 @@ public class Frag2_2Homework extends Fragment {
 
         return root;
     }
-
-    @Override
-    public void onBackpressed(){
-
-    }
 }
