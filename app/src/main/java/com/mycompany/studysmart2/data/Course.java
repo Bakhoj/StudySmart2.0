@@ -8,7 +8,7 @@ public class Course {
     public String name;
     public String description;
 
-    public Homework1[] homeworks;
+    public Homework[] homeworks;
 
     public Course(int id, String name, String description ) {
 
