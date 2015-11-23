@@ -32,7 +32,6 @@ public class Logik {
         System.out.println("THE MOTHERFUCKING DATE IS: " + date2);
         System.out.println("THE MOTHERFUCKING DATE IS: " + date3);
 
-
         student.Course = new Course[]{
                 new Course(1001, "Economics", "Something about economics"),
                 new Course(1002, "Business", "Something about Business and stuff")};
@@ -45,12 +44,14 @@ public class Logik {
 
         availableUniversities = new University[]{
                 new University(1, "CBS"),
-                new University(2, "DTU"),
+                new University(2, "DTU")
         };
 
         StudentChoice.instance = new StudentChoice();
         StudentChoice.instance.student = student;
     }
+
+
 
 
 }

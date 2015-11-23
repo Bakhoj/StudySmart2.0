@@ -38,7 +38,7 @@ public class Frag2_1Homeworkcalendar extends Fragment {
 
         View root = inflater.inflate(R.layout.frag2_1vp_homeworkcalendar, container, false);
 
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getChildFragmentManager()); // TODO: changed from getChildFragmentManager()
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager()); // TODO: changed from getChildFragmentManager() to getFragmentManager()
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) root.findViewById(R.id.container);
