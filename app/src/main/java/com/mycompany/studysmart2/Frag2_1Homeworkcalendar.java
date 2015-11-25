@@ -47,7 +47,6 @@ public class Frag2_1Homeworkcalendar extends Fragment {
         PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) root.findViewById(R.id.tabs);
         tabs.setViewPager(mViewPager);
 
-
         return root;
     }
 
