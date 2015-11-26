@@ -17,7 +17,7 @@ import android.widget.ListView;
 
 import com.astuetz.PagerSlidingTabStrip;
 import com.mycompany.studysmart2.data.Homework;
-import com.mycompany.studysmart2.data.Logik;
+import com.mycompany.studysmart2.data.Logic;
 import com.mycompany.studysmart2.data.StudentChoice;
 
 import java.util.Arrays;
@@ -26,6 +26,8 @@ import java.util.List;
 
 /**
  * Created by anders on 21-Nov-15.
+ * Frag2 1Homeworkcalendar
+ * this class setup the
  */
 public class Frag2_1Homeworkcalendar extends Fragment {
 
@@ -38,7 +40,7 @@ public class Frag2_1Homeworkcalendar extends Fragment {
 
         View root = inflater.inflate(R.layout.frag2_1vp_homeworkcalendar, container, false);
 
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager()); // TODO: changed from getChildFragmentManager() to getFragmentManager()
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getChildFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) root.findViewById(R.id.container);
@@ -47,6 +49,7 @@ public class Frag2_1Homeworkcalendar extends Fragment {
         PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) root.findViewById(R.id.tabs);
         tabs.setViewPager(mViewPager);
 
+        mViewPager.setVerticalScrollbarPosition(StudentChoice.instance.sgmPos);
 
         return root;
     }
@@ -125,14 +128,14 @@ public class Frag2_1Homeworkcalendar extends Fragment {
                                  Bundle savedInstanceState) {
             View root = inflater.inflate(R.layout.frag2_1homeworkcalendar, container, false);
 
-            homework = Arrays.asList(Logik.instance.student.Course[0].homeworks);
+            homework = Arrays.asList(Logic.instance.student.Course[0].homeworks);
 
             ListView hwlist = (ListView) root.findViewById(R.id.homeworkcalendar_list);
             hwlist.setAdapter(new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, homework));
             hwlist.setOnItemClickListener(this);
 
             return root;
-        }
+    }
 
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -140,15 +143,14 @@ public class Frag2_1Homeworkcalendar extends Fragment {
         }
 
         private void setHomework(int position){
-            StudentChoice.instance.homework = Logik.instance.student.Course[0].homeworks[position];
+            StudentChoice.instance.homework = Logic.instance.student.Course[0].homeworks[position];
             System.out.println("Hoasdfmework Choice: " + StudentChoice.instance.homework.title);
 
-            getFragmentManager().beginTransaction()
+            getActivity().getSupportFragmentManager().beginTransaction()
                     .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
                     .replace(R.id.main_content, new Frag2_2Homework())
                     .addToBackStack(null)
                     .commit();
         }
     }
-
 }

@@ -7,6 +7,7 @@ public class StudentChoice {
     public static StudentChoice instance;
     public Student student;
     public Homework homework;
+    public int sgmPos;
 
     public StudentChoice(){
 

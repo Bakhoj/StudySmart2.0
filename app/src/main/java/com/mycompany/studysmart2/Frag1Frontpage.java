@@ -11,7 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.mycompany.studysmart2.data.Logik;
+import com.mycompany.studysmart2.data.Logic;
 import com.mycompany.studysmart2.data.University;
 
 import java.util.Arrays;
@@ -43,7 +43,7 @@ public class Frag1Frontpage extends Fragment implements AdapterView.OnItemClickL
         TextView context = (TextView) root.findViewById(R.id.frontpage_context_text);
         context.setText(R.string.welcome_application_text);
 
-        universities = Arrays.asList(Logik.instance.availableUniversities);
+        universities = Arrays.asList(Logic.instance.availableUniversities);
 
         ListView unilist = (ListView) root.findViewById(R.id.frontpage_uni_list);
         unilist.setAdapter(new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, universities));
@@ -60,14 +60,14 @@ public class Frag1Frontpage extends Fragment implements AdapterView.OnItemClickL
 
     private void setUniversity(int position) {
 
-        Logik.instance.student.university = Logik.instance.availableUniversities[position];
+        Logic.instance.student.university = Logic.instance.availableUniversities[position];
 
         Frag2_1Homeworkcalendar hwc = new Frag2_1Homeworkcalendar();
 
         getFragmentManager().beginTransaction()
                 .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
                 .replace(R.id.main_content, hwc)
-                .addToBackStack(null)
+//                .addToBackStack(null)
                 .commit();
     }
 }

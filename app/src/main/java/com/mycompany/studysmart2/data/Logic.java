@@ -7,8 +7,8 @@ import java.util.Date;
 /**
  * Created by anders on 21-Nov-15.
  */
-public class Logik {
-    public static Logik instance;
+public class Logic {
+    public static Logic instance;
     public Student student;
     public Date date, date1, date2, date3;
     public University[] availableUniversities;

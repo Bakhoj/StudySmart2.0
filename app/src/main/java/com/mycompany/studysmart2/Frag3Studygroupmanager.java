@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.astuetz.PagerSlidingTabStrip;
+import com.mycompany.studysmart2.data.StudentChoice;
 
 /**
  * Created by anders on 21-Nov-15.
@@ -36,6 +37,7 @@ public class Frag3Studygroupmanager extends Fragment {
 
         PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) root.findViewById(R.id.tabs);
         tabs.setViewPager(mViewPager);
+        mViewPager.setCurrentItem(StudentChoice.instance.sgmPos);
 
         return root;
     }
