@@ -22,7 +22,6 @@ public class Frag3Studygroupmanager extends Fragment {
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
 
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -61,21 +60,14 @@ public class Frag3Studygroupmanager extends Fragment {
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 2;
+            // shows the amount of courses
+
+            return StudentChoice.instance.sgMaster.getCourseCount() - 1;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
-            switch (position) {
-                case 0:
-                    return "Your Groups";
-                case 1:
-                    return "Open Reading Meetups";
-                case 2:
-                    return "All";
-            }
-            return null;
+            return StudentChoice.instance.sgMaster.getCourseName(position);
         }
     }
 

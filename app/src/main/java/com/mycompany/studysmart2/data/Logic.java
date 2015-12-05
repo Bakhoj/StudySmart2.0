@@ -14,6 +14,8 @@ public class Logic {
     public University[] availableUniversities;
 
 
+
+
     public void makeTestData(){
         student = new Student(1234, "Anders", "Andersen", "male", "anders@cbs.dk", "19900821", 12345678, "studievej 2");
 
