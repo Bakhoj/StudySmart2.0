@@ -1,7 +1,6 @@
 package com.mycompany.studysmart2.data;
 
-import java.sql.Time;
-import java.sql.Date;
+import java.util.Date;
 import java.util.Vector;
 
 /**
@@ -21,21 +20,19 @@ public class StudyGroupsMaster {
         String longDescription;
         String location;
         Course course;
-        Time time;
         Date date;
 
-        public StudyGroup(String id, String n, String sd, String ld, String l, Course c, Time t, Date d){
+        public StudyGroup(String id, String n, String sd, String ld, String l, Course c, Date d){
             ID = id;
             name = n;
             shortDescription = sd;
             longDescription = ld;
             location = l;
             course = c;
-            time = t;
             date = d;
         }
 
-        public void changeInfo(String id, String n, String sd, String ld, String l, Course c, Time t, Date d){
+        public void changeInfo(String id, String n, String sd, String ld, String l, Course c, Date d){
             if (id != null){
                 ID = id;
             }
@@ -54,9 +51,6 @@ public class StudyGroupsMaster {
             if (c != null){
                 course = c;
             }
-            if (t != null){
-                time = t;
-            }
             if (d != null){
                 date = d;
             }
@@ -70,8 +64,8 @@ public class StudyGroupsMaster {
         cnLength = courseNames.size();
     }
 
-    public void addGroup(String id, String n, String sd, String ld, String l, Course c, Time t, Date d){
-        groups.add(new StudyGroup(id, n, sd, ld, l, c, t, d));
+    public void addGroup(String id, String n, String sd, String ld, String l, Course c, Date d){
+        groups.add(new StudyGroup(id, n, sd, ld, l, c, d));
         gLength++;
         if(!courseNames.contains(c.name)){
             courseNames.add(c.name);
@@ -134,10 +128,10 @@ public class StudyGroupsMaster {
         groups = res;
     }
 
-    public void updateElement(String oldid, String newid, String n, String sd, String ld, String l, Course c, Time t, Date d){
+    public void updateElement(String oldid, String newid, String n, String sd, String ld, String l, Course c, Date d){
         for (int i = 0; i < groups.size(); ++i){
             if (groups.elementAt(i).ID.equals(oldid)){
-                groups.elementAt(i).changeInfo(newid, n, sd, ld, l, c, t, d);
+                groups.elementAt(i).changeInfo(newid, n, sd, ld, l, c, d);
                 break;
             }
         }

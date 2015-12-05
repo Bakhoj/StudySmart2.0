@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.astuetz.PagerSlidingTabStrip;
+import com.mycompany.studysmart2.data.Logic;
 import com.mycompany.studysmart2.data.StudentChoice;
 
 /**
@@ -62,12 +63,12 @@ public class Frag3Studygroupmanager extends Fragment {
         public int getCount() {
             // shows the amount of courses
 
-            return StudentChoice.instance.sgMaster.getCourseCount() - 1;
+            return Logic.instance.studyGroupsMaster.getCourseCount();
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return StudentChoice.instance.sgMaster.getCourseName(position);
+            return Logic.instance.studyGroupsMaster.getCourseName(position);
         }
     }
 

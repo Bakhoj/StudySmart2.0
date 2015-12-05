@@ -12,6 +12,7 @@ public class Logic {
     public Student student;
     public Date date, date1, date2, date3;
     public University[] availableUniversities;
+    public StudyGroupsMaster studyGroupsMaster;
 
 
 
@@ -51,6 +52,10 @@ public class Logic {
 
         StudentChoice.instance = new StudentChoice();
         StudentChoice.instance.student = student;
+
+        studyGroupsMaster = new StudyGroupsMaster();
+        studyGroupsMaster.addGroup("0001", "bedstemors bageklub", "Små kage opskrifter", "meget mere om småkager", "kebab huset", student.Course[0], new Date());
+        studyGroupsMaster.addGroup("0002", "Den seriøse læse gruppe", "nørdede læse stuff", "meget mere om nørdede læse stuff", "et seriøst sted", student.Course[1], new Date(new Date().getTime() + (1000*60*60)));
     }
 
 
