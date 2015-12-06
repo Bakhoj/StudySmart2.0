@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -130,6 +131,8 @@ public class Frag2_1Homeworkcalendar extends Fragment {
                                  Bundle savedInstanceState) {
             View root = inflater.inflate(R.layout.frag2_1homeworkcalendar, container, false);
 
+//            Bundle bundle = this.getArguments();
+//            int pos = bundle.getInt(ARG_SECTION_NUMBER);
 
             int length = 0;
             int lengthb = Logic.instance.student.Course.length;
@@ -164,7 +167,7 @@ public class Frag2_1Homeworkcalendar extends Fragment {
 
         private void setHomework(int position){
             StudentChoice.instance.homework = homeworks[position];
-            System.out.println("Hoasdfmework Choice: " + StudentChoice.instance.homework.title);
+            Log.d("Homework Choice", StudentChoice.instance.homework.title);
 
             getActivity().getSupportFragmentManager().beginTransaction()
                     .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)

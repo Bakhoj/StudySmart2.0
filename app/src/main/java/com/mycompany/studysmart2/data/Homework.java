@@ -11,6 +11,10 @@ public class Homework implements Comparable<Homework>{
     public int id, session, status;
     public String title, description, shortdescription;
 
+    public static final int NOTREAD = 0;
+    public static final int READ = 1;
+    public static final int POSTPONED = 2;
+
     public Homework(int id, Date date, int session, String title, String description, String shortD, int status){
         this.id = id;
         this.date = date;

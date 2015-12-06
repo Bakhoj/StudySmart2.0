@@ -2,12 +2,14 @@ package com.mycompany.studysmart2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -16,6 +18,8 @@ import android.widget.Toast;
 import com.mycompany.studysmart2.data.Logic;
 import com.mycompany.studysmart2.data.StudentChoice;
 import com.mycompany.studysmart2.handler.LocalStorageHandler;
+
+import java.util.Date;
 
 public class MainAct extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -49,9 +53,6 @@ public class MainAct extends AppCompatActivity
                     .commit();
         }
 
-//        app:headerLayout="@layout/leftmenu_head"
-//        app:menu="@menu/activity_home_work_drawer"
-
         LocalStorageHandler.getInstance().loadData(this);
 
         View headerLayout = navigationView.inflateHeaderView(R.layout.leftmenu_head);
@@ -65,13 +66,30 @@ public class MainAct extends AppCompatActivity
         leftmenuStudentEmail.setText(Logic.instance.student.email);
     }
 
+    Long lastPressedTime = System.nanoTime();
+    Boolean doubleBackToExitPressedOnce = false;
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            // Source: http://stackoverflow.com/questions/8430805/android-clicking-twice-the-back-button-to-exit-activity
+            if (doubleBackToExitPressedOnce) {
+                super.onBackPressed();
+                return;
+            }
+
+            this.doubleBackToExitPressedOnce = true;
+            Toast.makeText(this, "Please again to close", Toast.LENGTH_SHORT).show();
+
+            new Handler().postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                    doubleBackToExitPressedOnce=false;
+                }
+            }, 2000);
         }
     }
 

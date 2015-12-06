@@ -3,6 +3,7 @@ package com.mycompany.studysmart2;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,10 +23,8 @@ import java.util.List;
 /**
  * Created by anders on 21-Nov-15.
  *
- * Fragement frontpage
+ * Fragement postponed homework
  *
- * This will be the first fragment shown for the user when logged in.
- * He will be able to choose a supported university here.
  *
  */
 public class Frag4_1PostponedHomework extends Fragment implements AdapterView.OnItemClickListener{
@@ -42,7 +41,7 @@ public class Frag4_1PostponedHomework extends Fragment implements AdapterView.On
         int lengthb = Logic.instance.student.Course.length;
         for (int i = 0; i < lengthb; i++){
             for (int j = 0; j < Logic.instance.student.Course[i].homeworks.length; j++) {
-                if (Logic.instance.student.Course[i].homeworks[j].status == 1){
+                if (Logic.instance.student.Course[i].homeworks[j].status == Homework.POSTPONED){
                     Homework[] temp_homeworks = homeworks;
                     homeworks = new Homework[homeworks.length + 1];
                     for(int k = 0; k < temp_homeworks.length; k++) {
@@ -71,12 +70,12 @@ public class Frag4_1PostponedHomework extends Fragment implements AdapterView.On
 
     private void setHomework(int position){
         StudentChoice.instance.homework = homeworks[position];
-        System.out.println("Hoasdfmework Choice: " + StudentChoice.instance.homework.title);
+        Log.d("Homework Choice", StudentChoice.instance.homework.title);
 
         getActivity().getSupportFragmentManager().beginTransaction()
                 .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
                 .replace(R.id.main_content, new Frag2_2Homework())
-                .addToBackStack(null)
+//                .addToBackStack(null)
                 .commit();
     }
 }
