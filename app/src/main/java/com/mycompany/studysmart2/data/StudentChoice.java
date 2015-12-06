@@ -8,7 +8,7 @@ public class StudentChoice {
     public Student student;
     public Homework homework;
     public int sgmPos;
-
+    public int coursePos;
     public StudentChoice(){
 
     }

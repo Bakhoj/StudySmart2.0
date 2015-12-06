@@ -117,14 +117,14 @@ public class MainAct extends AppCompatActivity
             StudentChoice.instance.sgmPos = 0;
             getSupportFragmentManager().beginTransaction()
                     .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
-                    .replace(R.id.main_content, new Frag3Studygroupmanager())
+                    .replace(R.id.main_content, new Frag3_1Studygroupmanager())
                     .commit();
         } else if (id == R.id.leftmenu_studygroup_meetings) {
             Toast.makeText(MainAct.this, "Studygroup meetings pressed", Toast.LENGTH_SHORT).show();
             StudentChoice.instance.sgmPos = 1;
             getSupportFragmentManager().beginTransaction()
                     .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
-                    .replace(R.id.main_content, new Frag3Studygroupmanager())
+                    .replace(R.id.main_content, new Frag3_1Studygroupmanager())
                     .commit();
         } else if (id == R.id.leftmenu_settings) {
             Toast.makeText(MainAct.this, "Settings pressed", Toast.LENGTH_SHORT).show();

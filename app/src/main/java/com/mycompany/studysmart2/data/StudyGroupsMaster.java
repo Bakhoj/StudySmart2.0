@@ -1,6 +1,8 @@
 package com.mycompany.studysmart2.data;
 
+import java.sql.SQLOutput;
 import java.util.Date;
+import java.util.List;
 import java.util.Vector;
 
 /**
@@ -8,8 +10,8 @@ import java.util.Vector;
  */
 public class StudyGroupsMaster {
 
-    Vector<StudyGroup> groups;
-    Vector<String> courseNames;
+    public Vector<StudyGroup> groups;
+    public Vector<String> courseNames;
     int gLength;
     int cnLength;
 
@@ -55,6 +57,18 @@ public class StudyGroupsMaster {
                 date = d;
             }
         }
+
+        public String toString(){
+            return (name + "\n" + shortDescription + "\n" + date);
+        }
+
+        public String longToString(){
+            return (name + "\n" + location + "\n" + location + "\n" + course + "\n" + date);
+        }
+    }
+
+    public String getGroupName(int position){
+        return groups.elementAt(position).name;
     }
 
     public StudyGroupsMaster(){
@@ -86,6 +100,21 @@ public class StudyGroupsMaster {
                 break;
             }
         }
+    }
+
+    public List<StudyGroup> getSubGroups(int pos){
+        //System.out.println("FINDING SUBGROUPS");
+        List<StudyGroup> res = new Vector<>();
+        sortByDate();
+        for (int index = 0; index < getGroupCount(); ++index){
+            //System.out.println(groups.elementAt(index).course.name.toString() + " = " + courseNames.elementAt(pos));
+            if (groups.elementAt(index).course.name.equals(courseNames.elementAt(pos))){
+                res.add(groups.elementAt(index));
+                //System.out.println("SOMETHING WAS FOUND AT" + index);
+            }
+        }
+
+        return res;
     }
 
     public int getGroupCount(){

@@ -9,6 +9,9 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.astuetz.PagerSlidingTabStrip;
@@ -18,7 +21,7 @@ import com.mycompany.studysmart2.data.StudentChoice;
 /**
  * Created by anders on 21-Nov-15.
  */
-public class Frag3Studygroupmanager extends Fragment {
+public class Frag3_1Studygroupmanager extends Fragment {
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
@@ -66,6 +69,7 @@ public class Frag3Studygroupmanager extends Fragment {
             return Logic.instance.studyGroupsMaster.getCourseCount();
         }
 
+
         @Override
         public CharSequence getPageTitle(int position) {
             return Logic.instance.studyGroupsMaster.getCourseName(position);
@@ -75,7 +79,7 @@ public class Frag3Studygroupmanager extends Fragment {
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class PlaceholderFragment extends Fragment {
+    public static class PlaceholderFragment extends Fragment implements AdapterView.OnItemClickListener {
         /**
          * The fragment argument representing the section number for this
          * fragment.
@@ -97,14 +101,38 @@ public class Frag3Studygroupmanager extends Fragment {
         public PlaceholderFragment() {
         }
 
+        //private StudyGroupsMaster studygroups;
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View root = inflater.inflate(R.layout.frag3_studygroupmanager, container, false);
+            View root = inflater.inflate(R.layout.frag3_1studygroupmanager, container, false);
             TextView textView = (TextView) root.findViewById(R.id.studygroupmanager_label);
+            //studygroups = Logic.instance.studyGroupsMaster;
+
             textView.setText("Studygroup manager");
+            ListView sglist = (ListView) root.findViewById(R.id.studygroupmanager_list);
+            Bundle args = this.getArguments();
+            sglist.setAdapter(new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, Logic.instance.studyGroupsMaster.getSubGroups(args.getInt(ARG_SECTION_NUMBER)-1)));
+
+            sglist.setOnItemClickListener(this);
 
             return root;
+        }
+
+
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            setStudyGroup(position);
+        }
+
+        private void setStudyGroup(int position){
+            StudentChoice.instance.coursePos = position;
+            System.out.println("Chosen Studygroup: " + Logic.instance.studyGroupsMaster.getGroupName(position));
+
+            getActivity().getSupportFragmentManager().beginTransaction()
+                    .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
+                    .replace(R.id.main_content, new Frag3_2StudyGroup())
+                    .addToBackStack(null)
+                    .commit();
         }
     }
 
