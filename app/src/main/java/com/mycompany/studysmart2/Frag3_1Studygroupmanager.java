@@ -131,7 +131,7 @@ public class Frag3_1Studygroupmanager extends Fragment {
             getActivity().getSupportFragmentManager().beginTransaction()
                     .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
                     .replace(R.id.main_content, new Frag3_2StudyGroup())
-                    .addToBackStack(null)
+                    //.addToBackStack(null)
                     .commit();
         }
     }
