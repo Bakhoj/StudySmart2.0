@@ -38,8 +38,7 @@ public class Frag2_3PostponedHomework extends Fragment implements AdapterView.On
         View root = inflater.inflate(R.layout.frag4_1postponedhomework, container, false);
 
         homeworks = new Homework[0];
-        int lengthb = Logic.instance.student.Course.length;
-        for (int i = 0; i < lengthb; i++){
+        for (int i = 0; i < Logic.instance.student.Course.length; i++){
             for (int j = 0; j < Logic.instance.student.Course[i].homeworks.length; j++) {
                 if (Logic.instance.student.Course[i].homeworks[j].status == Homework.POSTPONED){
                     Homework[] temp_homeworks = homeworks;
@@ -69,6 +68,8 @@ public class Frag2_3PostponedHomework extends Fragment implements AdapterView.On
 
     private void setHomework(int position){
         StudentChoice.instance.homework = homeworks[position];
+        StudentChoice.instance.setCourse();
+        StudentChoice.instance.fromView = StudentChoice.FROM_POSTPONEDHOMEWORK;
         Log.d("Homework Choice", StudentChoice.instance.homework.title);
 
         getActivity().getSupportFragmentManager().beginTransaction()

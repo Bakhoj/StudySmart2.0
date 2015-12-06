@@ -26,29 +26,24 @@ public class Logic {
             e.printStackTrace();
         }
 
-        date1 = new Date(new Date().getTime() + (1000*60*60));
-        date2 = new Date(date1.getTime() + 86400000);
-        date3 = new Date(date2.getTime() + 86400000);
-
-        System.out.println("THE MOTHERFUCKING DATE IS: " + date);
-        System.out.println("THE MOTHERFUCKING DATE IS: " + date1);
-        System.out.println("THE MOTHERFUCKING DATE IS: " + date2);
-        System.out.println("THE MOTHERFUCKING DATE IS: " + date3);
+        date1 = new Date(new Date().getTime() + (1000*60*60*24*7));
+        date2 = new Date(date1.getTime() + (1000*60*60*24*7));
+        date3 = new Date(date2.getTime() + (1000*60*60*24*7));
 
         student.Course = new Course[]{
-                new Course(1001, "Economics", "Something about economics"),
-                new Course(1002, "Business", "Something about Business and stuff")};
+                new Course(1001, "Økonomi", "The basale omkring handel, skat og revision"),
+                new Course(1002, "International Business", "Start et firma fra bunden, hvad kræver det og hvad skal der til?")};
 
         student.Course[0].homeworks = new Homework[] {
-                new Homework(2001, date1, 1, "First hw", "bla bla bla long description", "short message", 1),
-                new Homework(2002, date2, 2, "Second hw", "bla bla bla long description", "short message", 2),
-                new Homework(2003, date3, 3, "Third hw", "bla bla bla long description", "short message", 0)
+                new Homework(2001, date1, 1, "Introduktion", "Læs afsnit om introduktion og indledning til økonomi og handel", "Læs 1-3 kapitel", 1),
+                new Homework(2002, date2, 2, "Anden Undervisning", "Læs de resterende afsnit om handel og begynd på kapitlerne omkring skatteret \n\n Der vil være gruppe arbejde efter lektionen", "Læs 5,7-9 kapitel", 2),
+                new Homework(2003, date3, 3, "Første Projekt", "Genlæs alle tidligere kapitler \n\n Vi gennemgår første projekt some skal afleveres om 2uger, og skal gennemgåes", "Genlæs 1-3, 5, 7-9", 0)
         };
 
         student.Course[1].homeworks = new Homework[] {
-                new Homework(3001, new Date(date1.getTime() + (1000*60)), 2, "Something homework", "Long long description for dem all", "short message for this homework", 1),
-                new Homework(3003, new Date(date2.getTime() + (1000*60*10)), 3, "first homework", "more with long descripttions", "short message for this homework", 2),
-                new Homework(3002, new Date(date3.getTime() + (1000*60)), 2, "more with homework", "more dummy text for a very very long description", "short message for this homework", 1)
+                new Homework(3001, new Date(date1.getTime() + (1000*60*60*24*2)), 2, "1. Lektor", "Read page 12-243 and prepare a business concept for furture project", "Introduction to Business", 2),
+                new Homework(3003, new Date(date2.getTime() + (1000*60*60*24*2)), 3, "2. Lektor", "Read pager 350-365, 540-600 \n\n Work furthere on your business concept", "International taxes", 0),
+                new Homework(3002, new Date(date3.getTime() + (1000*60*60*24*2)), 2, "3. Lektor", "Form groups of 2-5 people and find a project you wish to work on", "European import taxes", 0)
         };
 
         availableUniversities = new University[]{

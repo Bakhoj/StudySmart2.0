@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mycompany.studysmart2.data.Course;
 import com.mycompany.studysmart2.data.Homework;
 import com.mycompany.studysmart2.data.Logic;
 import com.mycompany.studysmart2.data.StudentChoice;
@@ -38,7 +39,7 @@ public class Frag2_2Homework extends Fragment implements View.OnClickListener{
         Homework homework = StudentChoice.instance.homework;
 
         TextView header = (TextView) root.findViewById(R.id.homework_header_text);
-        header.setText(homework.title);
+        header.setText(homework.title + " - " + StudentChoice.instance.course.name);
 
         TextView context = (TextView) root.findViewById(R.id.homework_context_text);
         context.setText(homework.description);
@@ -62,6 +63,22 @@ public class Frag2_2Homework extends Fragment implements View.OnClickListener{
                 setStatus(Homework.POSTPONED);
                 break;
         }
+        Fragment fragment = new Frag2_1Homeworkcalendar();
+        switch (StudentChoice.instance.fromView) {
+            case StudentChoice.FROM_HOMEWORKCALENDAR:
+                fragment = new Frag2_1Homeworkcalendar();
+                break;
+            case StudentChoice.FROM_POSTPONEDHOMEWORK:
+                fragment = new Frag2_3PostponedHomework();
+                break;
+            default:
+        }
+
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right, R.anim.slide_in_right, R.anim.slide_out_left)
+                .replace(R.id.main_content, fragment)
+                .commit();
+
     }
 
     private void setStatus(int status) {
@@ -71,7 +88,7 @@ public class Frag2_2Homework extends Fragment implements View.OnClickListener{
                     Logic.instance.student.Course[i].homeworks[j].status = status;
                     StudentChoice.instance.homework = Logic.instance.student.Course[i].homeworks[j];
                     Toast.makeText(getContext(), "Status stored", Toast.LENGTH_SHORT).show();
-                    break;
+                    return;
                 }
             }
         }
