@@ -1,11 +1,12 @@
 package com.mycompany.studysmart2.data;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
  * Created by anders on 19-11-2015.
  */
-public class Homework {
+public class Homework implements Comparable<Homework>{
     public Date date;
     public int id, session, status;
     public String title, description, shortdescription;
@@ -22,12 +23,15 @@ public class Homework {
 
     @Override
     public String toString() {
+        SimpleDateFormat dt = new SimpleDateFormat("EEEE d MMM HH:mm");
+
         return title + "\n"
-                + date + "\n"
+                + dt.format(date) + "\n"
                 + shortdescription;
     }
 
-    /*public String toListString() {
-        return (title + "\n" + shortdescription);
-    }*/
+    @Override
+    public int compareTo(Homework another) {
+        return this.date.compareTo(another.date);
+    }
 }

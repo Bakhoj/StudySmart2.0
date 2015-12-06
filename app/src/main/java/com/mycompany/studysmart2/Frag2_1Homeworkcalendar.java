@@ -20,6 +20,7 @@ import com.mycompany.studysmart2.data.Homework;
 import com.mycompany.studysmart2.data.Logic;
 import com.mycompany.studysmart2.data.StudentChoice;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -123,12 +124,31 @@ public class Frag2_1Homeworkcalendar extends Fragment {
         }
 
         private List<Homework> homework;
+        private Homework[] homeworks;
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View root = inflater.inflate(R.layout.frag2_1homeworkcalendar, container, false);
 
-            homework = Arrays.asList(Logic.instance.student.Course[0].homeworks);
+
+            int length = 0;
+            int lengthb = Logic.instance.student.Course.length;
+            for (int i = 0; i < lengthb; i++){
+                length += Logic.instance.student.Course[i].homeworks.length;
+            }
+
+            homeworks = new Homework[length];
+            int a = 0;
+
+            for (int i = 0; i < lengthb; i++){
+                if (i != 0) {a += Logic.instance.student.Course[i-1].homeworks.length;}
+                for (int j = 0; j < Logic.instance.student.Course[i].homeworks.length; j++) {
+                    homeworks[j+a] = Logic.instance.student.Course[i].homeworks[j];
+                }
+            }
+
+            homework = Arrays.asList(homeworks);
+            Arrays.sort(homeworks);
 
             ListView hwlist = (ListView) root.findViewById(R.id.homeworkcalendar_list);
             hwlist.setAdapter(new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, homework));
@@ -143,7 +163,7 @@ public class Frag2_1Homeworkcalendar extends Fragment {
         }
 
         private void setHomework(int position){
-            StudentChoice.instance.homework = Logic.instance.student.Course[0].homeworks[position];
+            StudentChoice.instance.homework = homeworks[position];
             System.out.println("Hoasdfmework Choice: " + StudentChoice.instance.homework.title);
 
             getActivity().getSupportFragmentManager().beginTransaction()

@@ -45,6 +45,12 @@ public class Logic {
                 new Homework(2003, date3, 3, "Third hw", "bla bla bla long description", "short message", 0)
         };
 
+        student.Course[1].homeworks = new Homework[] {
+                new Homework(3001, new Date(date1.getTime() + (1000*60)), 2, "Something homework", "Long long description for dem all", "short message for this homework", 1),
+                new Homework(3003, new Date(date2.getTime() + (1000*60*10)), 3, "first homework", "more with long descripttions", "short message for this homework", 2),
+                new Homework(3002, new Date(date3.getTime() + (1000*60)), 2, "more with homework", "more dummy text for a very very long description", "short message for this homework", 1)
+        };
+
         availableUniversities = new University[]{
                 new University(1, "CBS"),
                 new University(2, "DTU")

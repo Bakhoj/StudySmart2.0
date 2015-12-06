@@ -89,6 +89,10 @@ public class MainAct extends AppCompatActivity
                     .commit();
         } else if (id == R.id.leftmenu_postponedhomework) {
             Toast.makeText(MainAct.this, "Postponedhomework pressed", Toast.LENGTH_SHORT).show();
+            getSupportFragmentManager().beginTransaction()
+                    .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
+                    .replace(R.id.main_content, new Frag4_1PostponedHomework())
+                    .commit();
 
         } else if (id == R.id.leftmenu_studygroup_groups) {
             Toast.makeText(MainAct.this, "Studygroups pressed", Toast.LENGTH_SHORT).show();
