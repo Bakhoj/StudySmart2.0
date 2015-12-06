@@ -27,7 +27,7 @@ import java.util.List;
  *
  *
  */
-public class Frag4_1PostponedHomework extends Fragment implements AdapterView.OnItemClickListener{
+public class Frag2_3PostponedHomework extends Fragment implements AdapterView.OnItemClickListener{
 
     List<Homework> homework;
     Homework[] homeworks;
@@ -47,7 +47,6 @@ public class Frag4_1PostponedHomework extends Fragment implements AdapterView.On
                     for(int k = 0; k < temp_homeworks.length; k++) {
                         homeworks[k] = temp_homeworks[k];
                     }
-
                     homeworks[temp_homeworks.length] = Logic.instance.student.Course[i].homeworks[j];
                 }
             }

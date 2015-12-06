@@ -9,7 +9,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -19,7 +18,6 @@ import com.mycompany.studysmart2.data.Logic;
 import com.mycompany.studysmart2.data.StudentChoice;
 import com.mycompany.studysmart2.handler.LocalStorageHandler;
 
-import java.util.Date;
 
 public class MainAct extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -66,7 +64,6 @@ public class MainAct extends AppCompatActivity
         leftmenuStudentEmail.setText(Logic.instance.student.email);
     }
 
-    Long lastPressedTime = System.nanoTime();
     Boolean doubleBackToExitPressedOnce = false;
     @Override
     public void onBackPressed() {
@@ -81,7 +78,7 @@ public class MainAct extends AppCompatActivity
             }
 
             this.doubleBackToExitPressedOnce = true;
-            Toast.makeText(this, "Please again to close", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Press again to close", Toast.LENGTH_SHORT).show();
 
             new Handler().postDelayed(new Runnable() {
 
@@ -109,7 +106,7 @@ public class MainAct extends AppCompatActivity
             Toast.makeText(MainAct.this, "Postponedhomework pressed", Toast.LENGTH_SHORT).show();
             getSupportFragmentManager().beginTransaction()
                     .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
-                    .replace(R.id.main_content, new Frag4_1PostponedHomework())
+                    .replace(R.id.main_content, new Frag2_3PostponedHomework())
                     .commit();
 
         } else if (id == R.id.leftmenu_studygroup_groups) {

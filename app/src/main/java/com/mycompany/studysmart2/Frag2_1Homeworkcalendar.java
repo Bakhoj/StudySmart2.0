@@ -21,7 +21,6 @@ import com.mycompany.studysmart2.data.Homework;
 import com.mycompany.studysmart2.data.Logic;
 import com.mycompany.studysmart2.data.StudentChoice;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -130,23 +129,16 @@ public class Frag2_1Homeworkcalendar extends Fragment {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View root = inflater.inflate(R.layout.frag2_1homeworkcalendar, container, false);
+            homeworks = new Homework[0];
 
-//            Bundle bundle = this.getArguments();
-//            int pos = bundle.getInt(ARG_SECTION_NUMBER);
-
-            int length = 0;
-            int lengthb = Logic.instance.student.Course.length;
-            for (int i = 0; i < lengthb; i++){
-                length += Logic.instance.student.Course[i].homeworks.length;
-            }
-
-            homeworks = new Homework[length];
-            int a = 0;
-
-            for (int i = 0; i < lengthb; i++){
-                if (i != 0) {a += Logic.instance.student.Course[i-1].homeworks.length;}
+            for (int i = 0; i < Logic.instance.student.Course.length; i++){
                 for (int j = 0; j < Logic.instance.student.Course[i].homeworks.length; j++) {
-                    homeworks[j+a] = Logic.instance.student.Course[i].homeworks[j];
+                    Homework[] temp_homeworks = homeworks;
+                    homeworks = new Homework[homeworks.length + 1];
+                    for(int k = 0; k < temp_homeworks.length; k++) {
+                        homeworks[k] = temp_homeworks[k];
+                    }
+                    homeworks[temp_homeworks.length] = Logic.instance.student.Course[i].homeworks[j];
                 }
             }
 
@@ -172,7 +164,7 @@ public class Frag2_1Homeworkcalendar extends Fragment {
             getActivity().getSupportFragmentManager().beginTransaction()
                     .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
                     .replace(R.id.main_content, new Frag2_2Homework())
-                    .addToBackStack(null)
+//                    .addToBackStack(null)
                     .commit();
         }
     }

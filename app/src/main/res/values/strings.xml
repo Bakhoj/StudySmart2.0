@@ -9,7 +9,7 @@
     <string name="section_format">Hello World from section: %1$d</string>
 
     <string name="welcome_application">Welcome to Study Smart</string>
-    <string name="welcome_application_text">The application is in alpha test at the moment.\nCrashes will occur</string>
+    <string name="welcome_application_text">The application is in alpha test at the moment.\nCrashes may occur</string>
 
     <string name="about_application">
         Icons are from the package Open Icon Library: http://sourceforge.net/projects/openiconlibrary/?source=typ_redirect</string>

@@ -27,7 +27,6 @@ import com.mycompany.studysmart2.data.StudentChoice;
  */
 public class Frag2_2Homework extends Fragment implements View.OnClickListener{
 
-
     Button read, postpone;
 
     @Nullable
