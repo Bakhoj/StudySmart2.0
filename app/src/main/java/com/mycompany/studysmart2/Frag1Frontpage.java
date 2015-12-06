@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.mycompany.studysmart2.data.Logic;
 import com.mycompany.studysmart2.data.University;
+import com.mycompany.studysmart2.handler.LocalStorageHandler;
 
 import java.util.Arrays;
 import java.util.List;
@@ -43,6 +44,10 @@ public class Frag1Frontpage extends Fragment implements AdapterView.OnItemClickL
         TextView context = (TextView) root.findViewById(R.id.frontpage_context_text);
         context.setText(R.string.welcome_application_text);
 
+        if(Logic.instance.student.university != null) {
+            otherStart();
+        }
+
         universities = Arrays.asList(Logic.instance.availableUniversities);
 
         ListView unilist = (ListView) root.findViewById(R.id.frontpage_uni_list);
@@ -61,7 +66,21 @@ public class Frag1Frontpage extends Fragment implements AdapterView.OnItemClickL
     private void setUniversity(int position) {
 
         Logic.instance.student.university = Logic.instance.availableUniversities[position];
+        LocalStorageHandler.getInstance().storeData(getContext());
 
+        TextView tv = (TextView) getActivity().findViewById(R.id.leftmenu_head_username);
+        tv.setText(tv.getText() + " @ " + Logic.instance.student.university.name);
+
+        Frag2_1Homeworkcalendar hwc = new Frag2_1Homeworkcalendar();
+
+        getFragmentManager().beginTransaction()
+                .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
+                .replace(R.id.main_content, hwc)
+//                .addToBackStack(null)
+                .commit();
+    }
+
+    private void otherStart() {
         Frag2_1Homeworkcalendar hwc = new Frag2_1Homeworkcalendar();
 
         getFragmentManager().beginTransaction()

@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.mycompany.studysmart2.data.Logic;
 import com.mycompany.studysmart2.data.StudentChoice;
+import com.mycompany.studysmart2.handler.LocalStorageHandler;
 
 public class MainAct extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -51,10 +52,14 @@ public class MainAct extends AppCompatActivity
 //        app:headerLayout="@layout/leftmenu_head"
 //        app:menu="@menu/activity_home_work_drawer"
 
+        LocalStorageHandler.getInstance().loadData(this);
+
         View headerLayout = navigationView.inflateHeaderView(R.layout.leftmenu_head);
 
         leftmenuStudentName = (TextView) headerLayout.findViewById(R.id.leftmenu_head_username);
-        leftmenuStudentName.setText(Logic.instance.student.name);
+        String s = Logic.instance.student.name;
+        if(Logic.instance.student.university != null) { s += " @ " + Logic.instance.student.university.name; }
+        leftmenuStudentName.setText(s);
 
         leftmenuStudentEmail = (TextView) headerLayout.findViewById(R.id.leftmenu_head_usermail);
         leftmenuStudentEmail.setText(Logic.instance.student.email);
