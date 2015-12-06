@@ -1,6 +1,7 @@
 package com.mycompany.studysmart2.data;
 
 import java.sql.SQLOutput;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Vector;
@@ -59,11 +60,13 @@ public class StudyGroupsMaster {
         }
 
         public String toString(){
-            return (name + "\n" + shortDescription + "\n" + date);
+            SimpleDateFormat dt = new SimpleDateFormat("EEEE d MMM HH:mm");
+            return (name + "\n" + shortDescription + "\n" + dt.format(date));
         }
 
         public String longToString(){
-            return (name + "\n" + location + "\n" + location + "\n" + course + "\n" + date);
+            SimpleDateFormat dt = new SimpleDateFormat("EEEE d MMM HH:mm");
+            return (name + "\n" + location + "\n" + location + "\n" + course + "\n" + dt.format(date));
         }
     }
 
