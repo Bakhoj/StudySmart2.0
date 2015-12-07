@@ -143,9 +143,11 @@ public class LoginAct extends AppCompatActivity implements OnClickListener {
             if(isEmailValid(mEmailView.getText().toString()) && isPasswordValid(mPasswordView.getText().toString())){
                 ExternalStorageHandler.instance.connectToDb(mEmailView.getText().toString(), mPasswordView.getText().toString());
             }
-/*            Intent i = new Intent(this, MainAct.class);
-            startActivity(i);
-            finish();*/
+            if(ExternalStorageHandler.instance.checkUser()) {
+                Intent i = new Intent(this, MainAct.class);
+                startActivity(i);
+                finish();
+            }
         }
     }
 

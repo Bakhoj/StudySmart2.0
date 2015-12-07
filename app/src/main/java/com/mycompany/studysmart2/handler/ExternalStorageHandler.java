@@ -1,6 +1,7 @@
 package com.mycompany.studysmart2.handler;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -13,6 +14,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -30,14 +32,19 @@ import java.util.List;
  */
 public class ExternalStorageHandler {
     public static ExternalStorageHandler instance = new ExternalStorageHandler();
-    private final String serverUrl = "http://fuelshare.byethost.com/studySmart.php";
+    private final String serverUrl = "http://fuelshare.byethost.com/index.php";
     private String enteredEmail;
     private String enteredPassword;
+    private boolean loggedIn = false;
 
+    public boolean checkUser(){
+        return loggedIn;
+    }
 
     public void connectToDb(String email, String password) {
         this.enteredEmail = email;
         this.enteredPassword = password;
+
         AsyncDataClass asyncRequestObject = new AsyncDataClass();
 
         asyncRequestObject.execute(serverUrl, enteredEmail, enteredPassword);
@@ -55,7 +62,7 @@ public class ExternalStorageHandler {
 
             HttpConnectionParams.setSoTimeout(httpParameters, 5000);
 
-            HttpClient httpClient = new DefaultHttpClient();
+            HttpClient httpClient = new DefaultHttpClient(httpParameters);
 
             HttpPost httpPost = new HttpPost(params[0]);
 
@@ -65,7 +72,7 @@ public class ExternalStorageHandler {
 
                 List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
 
-                nameValuePairs.add(new BasicNameValuePair("username", params[1]));
+                nameValuePairs.add(new BasicNameValuePair("email", params[1]));
 
                 nameValuePairs.add(new BasicNameValuePair("password", params[2]));
 
@@ -100,12 +107,14 @@ public class ExternalStorageHandler {
         @Override
 
         protected void onPostExecute(String result) {
-
             super.onPostExecute(result);
 
             System.out.println("Resulted Value: " + result);
 
-            if(result.equals("") || result == null){
+            if (result.equals("") || result == null) {
+
+                System.out.println("not gonna happen");
+                //conn failed
 
                 return;
 
@@ -113,8 +122,44 @@ public class ExternalStorageHandler {
 
             int jsonResult = returnParsedJsonObject(result);
 
+            if (jsonResult == 0) {
 
+                loggedIn = false;
+                //invalid user or pass
+
+                return;
+
+            }
+
+            if (jsonResult == 1) {
+
+                loggedIn = true;
+                //correct
+
+            }
         }
+//            try {
+//                JSONArray Jarray = new JSONArray(result);
+//                for (int i = 0; i < Jarray.length(); i++) {
+//                    JSONObject Jasonobject = null;
+//                    Jasonobject = Jarray.getJSONObject(i);
+//
+//                    //String id = Jasonobject.getString("id");
+//                    String name = Jasonobject.getString("name");
+//                    String db_detail = "";
+//
+//                    if (et.getText().toString().equalsIgnoreCase(name)) {
+//                        db_detail = Jasonobject.getString("detail");
+//                        break;
+//                    }
+//
+//                }
+//
+//            } catch (Exception e) {
+//                // TODO: handle exception
+//                Log.e("log_tag", "Error parsing data " + e.toString());
+//            }
+//        }
 
         private StringBuilder inputStreamToString(InputStream is) {
 
