@@ -17,10 +17,12 @@ public class StudentChoice {
 
     }
 
-    public void setCourse(){
+    public void setPos(Homework homework){
         for (int i = 0; i < Logic.instance.student.Course.length; i++){
             for (int j = 0; j < Logic.instance.student.Course[i].homeworks.length; j++) {
                 if (Logic.instance.student.Course[i].homeworks[j] == homework){
+                    coursePos = i;
+                    homeworkPos = j;
                     course = Logic.instance.student.Course[i];
                     return;
                 }

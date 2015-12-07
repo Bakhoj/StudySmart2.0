@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.mycompany.studysmart2.data.Homework;
 import com.mycompany.studysmart2.data.Logic;
@@ -35,7 +34,7 @@ public class Frag2_3PostponedHomework extends Fragment implements AdapterView.On
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.frag4_1postponedhomework, container, false);
+        View root = inflater.inflate(R.layout.frag2_3postponedhomework, container, false);
 
         homeworks = new Homework[0];
         for (int i = 0; i < Logic.instance.student.Course.length; i++){
@@ -67,10 +66,10 @@ public class Frag2_3PostponedHomework extends Fragment implements AdapterView.On
     }
 
     private void setHomework(int position){
-        StudentChoice.instance.homework = homeworks[position];
-        StudentChoice.instance.setCourse();
+//        StudentChoice.instance.homework = homeworks[position];
+        StudentChoice.instance.setPos(homeworks[position]);
         StudentChoice.instance.fromView = StudentChoice.FROM_POSTPONEDHOMEWORK;
-        Log.d("Homework Choice", StudentChoice.instance.homework.title);
+        Log.d("Homework Choice", Logic.instance.student.Course[StudentChoice.instance.coursePos].homeworks[StudentChoice.instance.homeworkPos].title);
 
         getActivity().getSupportFragmentManager().beginTransaction()
                 .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)

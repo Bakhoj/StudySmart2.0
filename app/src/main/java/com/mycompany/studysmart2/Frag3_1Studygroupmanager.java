@@ -45,6 +45,12 @@ public class Frag3_1Studygroupmanager extends Fragment {
         return root;
     }
 
+    @Override
+    public void onAttach(android.app.Activity activity) {
+        super.onAttach(activity);
+        ((MainAct) activity).setTitle("Studygroup Manager");
+    }
+
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
