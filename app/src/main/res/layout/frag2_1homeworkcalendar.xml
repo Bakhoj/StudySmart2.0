@@ -7,15 +7,15 @@
     tools:context="com.mycompany.studysmart2.VPAct$PlaceholderFragment"
     android:id="@+id/homeworkcalendar_frag">
 
-    <TextView android:id="@+id/homeworkcalendar_label" android:layout_width="wrap_content"
+<!--    <TextView android:id="@+id/homeworkcalendar_label" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Homework Calendar" />
+        android:text="Homework Calendar" />-->
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/homeworkcalendar_list"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/homeworkcalendar_label" />
+         />
 
 </RelativeLayout>

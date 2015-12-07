@@ -167,8 +167,6 @@ public class Frag2_1Homeworkcalendar extends Fragment {
         }
 
         private void setHomework(int position){
-//            StudentChoice.instance.homework = homeworks[position];
-//            StudentChoice.instance.coursePos = args.getInt(ARG_SECTION_NUMBER);
             StudentChoice.instance.setPos(homeworks[position]);
             StudentChoice.instance.fromView = StudentChoice.FROM_HOMEWORKCALENDAR;
             Log.d("Homework Choice", Logic.instance.student.Course[StudentChoice.instance.coursePos].homeworks[StudentChoice.instance.homeworkPos].title);

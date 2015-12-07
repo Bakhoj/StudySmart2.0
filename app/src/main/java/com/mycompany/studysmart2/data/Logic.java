@@ -52,7 +52,6 @@ public class Logic {
         };
 
         StudentChoice.instance = new StudentChoice();
-        StudentChoice.instance.student = student;
 
         studyGroupsMaster = new StudyGroupsMaster();
         studyGroupsMaster.addGroup("0001", "Økonomi", "Økonomi teksts gennemgang", "Gennemgang af teksten og diskussion og den indfydelse", "CBS Frederiksberg", student.Course[0], new Date(date1.getTime() + (1000*60*60*24*2)));

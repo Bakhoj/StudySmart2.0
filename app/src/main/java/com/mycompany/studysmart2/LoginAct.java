@@ -140,6 +140,7 @@ public class LoginAct extends AppCompatActivity implements OnClickListener {
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.email_sign_in_button){
+//            attemptLogin();
             if(isEmailValid(mEmailView.getText().toString()) && isPasswordValid(mPasswordView.getText().toString())){
                 ExternalStorageHandler.instance.connectToDb(mEmailView.getText().toString(), mPasswordView.getText().toString());
             }

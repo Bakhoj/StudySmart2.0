@@ -61,6 +61,12 @@ public class Frag2_3PostponedHomework extends Fragment implements AdapterView.On
     }
 
     @Override
+    public void onAttach(android.app.Activity activity) {
+        super.onAttach(activity);
+        ((MainAct) activity).setTitle("Postponed Homework");
+    }
+
+    @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         setHomework(position);
     }

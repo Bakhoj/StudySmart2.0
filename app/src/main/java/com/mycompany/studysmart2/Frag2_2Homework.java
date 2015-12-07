@@ -36,12 +36,11 @@ public class Frag2_2Homework extends Fragment implements View.OnClickListener{
 
         View root = inflater.inflate(R.layout.frag2_2homework, container, false);
 
-//        Homework homework = StudentChoice.instance.homework;
         Homework homework = Logic.instance.student.Course[StudentChoice.instance.coursePos].homeworks[StudentChoice.instance.homeworkPos];
 
 
         TextView header = (TextView) root.findViewById(R.id.homework_header_text);
-        header.setText(homework.title + " - " + StudentChoice.instance.course.name);
+        header.setText(homework.title);
 
         TextView context = (TextView) root.findViewById(R.id.homework_context_text);
         context.setText(homework.description);
@@ -71,7 +70,7 @@ public class Frag2_2Homework extends Fragment implements View.OnClickListener{
                 setStatus(Homework.POSTPONED);
                 break;
         }
-        Fragment fragment = new Frag2_1Homeworkcalendar();
+        Fragment fragment;
         switch (StudentChoice.instance.fromView) {
             case StudentChoice.FROM_HOMEWORKCALENDAR:
                 fragment = new Frag2_1Homeworkcalendar();
@@ -80,27 +79,18 @@ public class Frag2_2Homework extends Fragment implements View.OnClickListener{
                 fragment = new Frag2_3PostponedHomework();
                 break;
             default:
+                fragment = new Frag2_1Homeworkcalendar();
+                break;
         }
 
         getActivity().getSupportFragmentManager().beginTransaction()
                 .setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right, R.anim.slide_in_right, R.anim.slide_out_left)
                 .replace(R.id.main_content, fragment)
                 .commit();
-
     }
 
 
     private void setStatus(int status) {
         Logic.instance.student.Course[StudentChoice.instance.coursePos].homeworks[StudentChoice.instance.homeworkPos].status = status;
-        /*for(int i = 0; i < Logic.instance.student.Course.length; i++) {
-            for(int j = 0; j < Logic.instance.student.Course[i].homeworks.length; j++) {
-                if(Logic.instance.student.Course[i].homeworks[j] == StudentChoice.instance.homework) {
-                    Logic.instance.student.Course[i].homeworks[j].status = status;
-                    StudentChoice.instance.homework = Logic.instance.student.Course[i].homeworks[j];
-                    Toast.makeText(getContext(), "Status stored", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-            }
-        }*/
     }
 }
