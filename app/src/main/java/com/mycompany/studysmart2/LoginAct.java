@@ -28,6 +28,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.mycompany.studysmart2.handler.ExternalStorageHandler;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,8 +60,8 @@ public class LoginAct extends AppCompatActivity implements OnClickListener {
     // UI references.
     private AutoCompleteTextView mEmailView;
     private EditText mPasswordView;
-    private View mProgressView;
-    private View mLoginFormView;
+//    private View mProgressView;
+//    private View mLoginFormView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,9 +140,12 @@ public class LoginAct extends AppCompatActivity implements OnClickListener {
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.email_sign_in_button){
-            Intent i = new Intent(this, MainAct.class);
+            if(isEmailValid(mEmailView.getText().toString()) && isPasswordValid(mPasswordView.getText().toString())){
+                ExternalStorageHandler.instance.connectToDb(mEmailView.getText().toString(), mPasswordView.getText().toString());
+            }
+/*            Intent i = new Intent(this, MainAct.class);
             startActivity(i);
-            finish();
+            finish();*/
         }
     }
 

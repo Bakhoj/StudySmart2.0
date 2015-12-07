@@ -107,6 +107,8 @@ public class Frag2_1Homeworkcalendar extends Fragment {
          * fragment.
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
+        private static Bundle args;
+
 
         /**
          * Returns a new instance of this fragment for the given section
@@ -114,7 +116,7 @@ public class Frag2_1Homeworkcalendar extends Fragment {
          */
         public static PlaceholderFragment newInstance(int position) {
             PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
+            args = new Bundle();
             args.putInt(ARG_SECTION_NUMBER, position);
             fragment.setArguments(args);
             return fragment;
@@ -159,6 +161,7 @@ public class Frag2_1Homeworkcalendar extends Fragment {
 
         private void setHomework(int position){
             StudentChoice.instance.homework = homeworks[position];
+            StudentChoice.instance.coursePos = args.getInt(ARG_SECTION_NUMBER);
             StudentChoice.instance.setCourse();
             StudentChoice.instance.fromView = StudentChoice.FROM_HOMEWORKCALENDAR;
             Log.d("Homework Choice", StudentChoice.instance.homework.title);

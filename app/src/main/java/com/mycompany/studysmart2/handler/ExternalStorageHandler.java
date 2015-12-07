@@ -29,11 +29,15 @@ import java.util.List;
  * handles the communication to the database.
  */
 public class ExternalStorageHandler {
+    public static ExternalStorageHandler instance = new ExternalStorageHandler();
     private final String serverUrl = "http://fuelshare.byethost.com/studySmart.php";
     private String enteredEmail;
     private String enteredPassword;
 
-    public void connectToDb() {
+
+    public void connectToDb(String email, String password) {
+        this.enteredEmail = email;
+        this.enteredPassword = password;
         AsyncDataClass asyncRequestObject = new AsyncDataClass();
 
         asyncRequestObject.execute(serverUrl, enteredEmail, enteredPassword);
