@@ -133,7 +133,7 @@ public class Frag3_1Studygroupmanager extends Fragment {
         private void setStudyGroup(int position){
             Bundle args = this.getArguments();
             StudentChoice.instance.coursePos = args.getInt(ARG_SECTION_NUMBER) - 1;
-            System.out.println("Chosen Studygroup: " + Logic.instance.studyGroupsMaster.getGroupName(position));
+            System.out.println("Chosen Studygroup: " + Logic.instance.studyGroupsMaster.getGroupName(StudentChoice.instance.coursePos));
 
             getActivity().getSupportFragmentManager().beginTransaction()
                     .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
