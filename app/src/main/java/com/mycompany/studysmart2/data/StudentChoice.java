@@ -7,7 +7,7 @@ public class StudentChoice {
     public static StudentChoice instance;
     public Student student;
     public Homework homework;
-    public int sgmPos, coursePos, fromView;
+    public int sgmPos, coursePos, homeworkPos, fromView;
     public Course course;
 
     public static final int FROM_POSTPONEDHOMEWORK = 0;
@@ -17,13 +17,24 @@ public class StudentChoice {
 
     }
 
-    public void setCourse(){
+    public void setPos(Homework homework){
         for (int i = 0; i < Logic.instance.student.Course.length; i++){
             for (int j = 0; j < Logic.instance.student.Course[i].homeworks.length; j++) {
                 if (Logic.instance.student.Course[i].homeworks[j] == homework){
+                    coursePos = i;
+                    homeworkPos = j;
                     course = Logic.instance.student.Course[i];
                     return;
                 }
+            }
+        }
+    }
+
+    public void setHomeworkPos(Homework homework) {
+        for (int i = 0; i < Logic.instance.student.Course[coursePos].homeworks.length; i++) {
+            if(homework == Logic.instance.student.Course[coursePos].homeworks[i]) {
+                homeworkPos = i;
+                return;
             }
         }
     }

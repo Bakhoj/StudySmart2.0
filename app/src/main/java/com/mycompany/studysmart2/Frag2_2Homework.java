@@ -36,7 +36,9 @@ public class Frag2_2Homework extends Fragment implements View.OnClickListener{
 
         View root = inflater.inflate(R.layout.frag2_2homework, container, false);
 
-        Homework homework = StudentChoice.instance.homework;
+//        Homework homework = StudentChoice.instance.homework;
+        Homework homework = Logic.instance.student.Course[StudentChoice.instance.coursePos].homeworks[StudentChoice.instance.homeworkPos];
+
 
         TextView header = (TextView) root.findViewById(R.id.homework_header_text);
         header.setText(homework.title + " - " + StudentChoice.instance.course.name);
@@ -51,6 +53,12 @@ public class Frag2_2Homework extends Fragment implements View.OnClickListener{
         postpone.setOnClickListener(this);
 
         return root;
+    }
+
+    @Override
+    public void onAttach(android.app.Activity activity) {
+        super.onAttach(activity);
+        ((MainAct) activity).setTitle(Logic.instance.student.Course[StudentChoice.instance.coursePos].name);
     }
 
     @Override
@@ -81,8 +89,10 @@ public class Frag2_2Homework extends Fragment implements View.OnClickListener{
 
     }
 
+
     private void setStatus(int status) {
-        for(int i = 0; i < Logic.instance.student.Course.length; i++) {
+        Logic.instance.student.Course[StudentChoice.instance.coursePos].homeworks[StudentChoice.instance.homeworkPos].status = status;
+        /*for(int i = 0; i < Logic.instance.student.Course.length; i++) {
             for(int j = 0; j < Logic.instance.student.Course[i].homeworks.length; j++) {
                 if(Logic.instance.student.Course[i].homeworks[j] == StudentChoice.instance.homework) {
                     Logic.instance.student.Course[i].homeworks[j].status = status;
@@ -91,6 +101,6 @@ public class Frag2_2Homework extends Fragment implements View.OnClickListener{
                     return;
                 }
             }
-        }
+        }*/
     }
 }

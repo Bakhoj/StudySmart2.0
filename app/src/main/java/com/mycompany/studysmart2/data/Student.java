@@ -5,7 +5,7 @@ package com.mycompany.studysmart2.data;
  */
 public class Student {
     public int id, phone;
-    public String name, lastname, sex, email, birth, address;
+    public String name, lastname, sex, email, birth, address, password;
 
     public Course[] Course;
     public University university;
@@ -20,5 +20,6 @@ public class Student {
         this.birth = birth;
         this.phone = phone;
         this.address = address;
+        this.password = "";
     }
 }
