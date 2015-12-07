@@ -66,7 +66,7 @@ public class StudyGroupsMaster {
 
         public String longToString(){
             SimpleDateFormat dt = new SimpleDateFormat("EEEE d MMM HH:mm");
-            return (name + "\n" + location + "\n" + location + "\n" + course + "\n" + dt.format(date));
+            return (name + "\n" + longDescription + "\n" + location + "\n" + course + "\n" + dt.format(date));
         }
     }
 

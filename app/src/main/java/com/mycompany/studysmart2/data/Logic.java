@@ -55,8 +55,8 @@ public class Logic {
         StudentChoice.instance.student = student;
 
         studyGroupsMaster = new StudyGroupsMaster();
-        studyGroupsMaster.addGroup("0001", "bedstemors bageklub", "Små kage opskrifter", "meget mere om småkager", "kebab huset", student.Course[0], new Date());
-        studyGroupsMaster.addGroup("0002", "Den seriøse læse gruppe", "nørdede læse stuff", "meget mere om nørdede læse stuff", "et seriøst sted", student.Course[1], new Date(new Date().getTime() + (1000*60*60)));
+        studyGroupsMaster.addGroup("0001", "Økonomi", "Økonomi teksts gennemgang", "Gennemgang af teksten og diskussion og den indfydelse", "CBS Frederiksberg", student.Course[0], new Date(date1.getTime() + (1000*60*60*24*2)));
+        studyGroupsMaster.addGroup("0002", "Internationalbuisness", "Diskussion", "Diskussion om opstartsvirksomheder DO's & DONT's", "Kantinen, CBS Frederiksberg", student.Course[1], new Date(new Date().getTime() + (1000*60*60)));
     }
 
 

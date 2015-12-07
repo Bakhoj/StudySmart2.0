@@ -30,7 +30,7 @@ public class Frag3_1Studygroupmanager extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.frag2_1vp_homeworkcalendar, container, false);
+        View root = inflater.inflate(R.layout.frag3_1vp_studygroupmanager, container, false);
 
         mSectionsPagerAdapter = new SectionsPagerAdapter(getChildFragmentManager());
 
@@ -125,7 +125,8 @@ public class Frag3_1Studygroupmanager extends Fragment {
         }
 
         private void setStudyGroup(int position){
-            StudentChoice.instance.coursePos = position;
+            Bundle args = this.getArguments();
+            StudentChoice.instance.coursePos = args.getInt(ARG_SECTION_NUMBER) - 1;
             System.out.println("Chosen Studygroup: " + Logic.instance.studyGroupsMaster.getGroupName(position));
 
             getActivity().getSupportFragmentManager().beginTransaction()
