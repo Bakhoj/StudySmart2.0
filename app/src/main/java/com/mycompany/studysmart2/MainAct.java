@@ -42,8 +42,6 @@ public class MainAct extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-//        getSupportActionBar().setTitle("Hejsa");
-
         if (savedInstanceState == null) {
             Logic.instance = new Logic();
             Logic.instance.makeTestData();

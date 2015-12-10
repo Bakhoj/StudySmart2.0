@@ -50,14 +50,8 @@ public class Frag2_2Homework extends Fragment implements View.OnClickListener{
 
         read.setOnClickListener(this);
         postpone.setOnClickListener(this);
-
+        ((MainAct) getActivity()).setTitle(Logic.instance.student.Course[StudentChoice.instance.coursePos].name);
         return root;
-    }
-
-    @Override
-    public void onAttach(android.app.Activity activity) {
-        super.onAttach(activity);
-        ((MainAct) activity).setTitle(Logic.instance.student.Course[StudentChoice.instance.coursePos].name);
     }
 
     @Override

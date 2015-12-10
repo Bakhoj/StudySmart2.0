@@ -32,13 +32,9 @@ public class Frag3_2StudyGroup  extends Fragment  {
         TextView context = (TextView) root.findViewById(R.id.studygroup_context_text);
         context.setText(SGM.groups.elementAt(pos).longToString());
 
-        return root;
-    }
+        ((MainAct) getActivity()).setTitle(Logic.instance.studyGroupsMaster.getGroupName(StudentChoice.instance.coursePos));
 
-    @Override
-    public void onAttach(android.app.Activity activity) {
-        super.onAttach(activity);
-        ((MainAct) activity).setTitle(Logic.instance.studyGroupsMaster.getGroupName(StudentChoice.instance.coursePos));
+        return root;
     }
 
 }

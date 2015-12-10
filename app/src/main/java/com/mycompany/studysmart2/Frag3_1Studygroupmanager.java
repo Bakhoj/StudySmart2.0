@@ -41,14 +41,8 @@ public class Frag3_1Studygroupmanager extends Fragment {
         PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) root.findViewById(R.id.tabs);
         tabs.setViewPager(mViewPager);
         mViewPager.setCurrentItem(StudentChoice.instance.sgmPos);
-
+        ((MainAct) getActivity()).setTitle("Studygroup Manager");
         return root;
-    }
-
-    @Override
-    public void onAttach(android.app.Activity activity) {
-        super.onAttach(activity);
-        ((MainAct) activity).setTitle("Studygroup Manager");
     }
 
     /**

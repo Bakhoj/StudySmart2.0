@@ -57,13 +57,9 @@ public class Frag2_3PostponedHomework extends Fragment implements AdapterView.On
         hwlist.setAdapter(new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, homework));
         hwlist.setOnItemClickListener(this);
 
-        return root;
-    }
+        ((MainAct) getActivity()).setTitle("Postponed Homework");
 
-    @Override
-    public void onAttach(android.app.Activity activity) {
-        super.onAttach(activity);
-        ((MainAct) activity).setTitle("Postponed Homework");
+        return root;
     }
 
     @Override

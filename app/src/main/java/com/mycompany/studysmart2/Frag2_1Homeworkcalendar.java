@@ -52,14 +52,8 @@ public class Frag2_1Homeworkcalendar extends Fragment {
         tabs.setViewPager(mViewPager);
 
         mViewPager.setVerticalScrollbarPosition(StudentChoice.instance.sgmPos);
-
+        ((MainAct) getActivity()).setTitle("Homework Calendar");
         return root;
-    }
-
-    @Override
-    public void onAttach(android.app.Activity activity) {
-        super.onAttach(activity);
-        ((MainAct) activity).setTitle("Homework Calendar");
     }
 
     /**
